@@ -406,11 +406,11 @@ bird_to_element = {
     "Peacock": "Ether"
 }
 bird_descriptions = {
-    "Vulture": "In Pancha Pakshi Shastra, the Vulture (Gṛdhra) symbolizes transformation, power, and leadership. Mythically linked to Garuda, Vishnu's vehicle, it embodies swift action and protection. It engages in activities like Ruling (strongest) to Dying (weakest), influencing auspicious timings. Linked to Type I strings, it vibrates with dynamic, open-closed modes, enhancing fiery Rashis like Mesha with passionate drive! 🦅⚡",
-    "Owl": "The Owl (Ulūka) in Pancha Pakshi stands for Water 💧, signifying intuition, wisdom, and adaptability. Associated with Lakshmi's night vigilance, it's a harbinger of deep knowledge. Cycles through Eating, Walking, etc., for daily predictions. Tied to Type IIA strings, it flows in balanced, non-chiral dimensions, amplifying watery traits in Nakshatras like Pushya with emotional depth! 🦉🌊🔮",
-    "Crow": "Crow (Kāka) represents Earth 🌍, denoting practicality, intelligence, and ancestral connections. As Shani's messenger, it signifies resourcefulness and caution. Its states (Ruling to Sleeping) guide mundane tasks. Connected to Heterotic SO(32) strings, grounding hybrid symmetries, it stabilizes earthy Kanya Rashi with wise, analytical energy! 🐦🌿🧠",
-    "Cock": "The Cock (Kukkuṭa) embodies Air 🌬️, symbolizing alertness, courage, and communication. Linked to dawn and warriors like Kartikeya, it crows awakening and vigilance. Activities cycle for timing battles or starts. Aligned with Type IIB strings, chiral and self-dual, it boosts airy Mithuna with swift, intellectual winds! 🐔☁️🏹",
-    "Peacock": "Peacock (Mayūra) signifies Ether ✨, illustrating expansion, beauty, and spirituality. Vehicle of Kartikeya, it dances in royal harmony, representing boundless space. From Ruling (peak creativity) to Dying, it aids spiritual pursuits. Mapped to Heterotic E8×E8 strings, unifying grand symmetries, it elevates ethereal Meena with cosmic visions! 🦚🌌💫"
+    "Vulture": "In Pancha Pakshi Shastra, the Vulture (Gṛdhra) symbolizes transformation, power, and leadership. Mythically linked to Garuda, Vishnu's vehicle, it embodies swift action and protection. It engages in activities like Ruling (strongest) to Dying (weakest), influencing auspicious timings. Enhancing fiery Rashis like Mesha with passionate drive! 🦅⚡",
+    "Owl": "The Owl (Ulūka) in Pancha Pakshi stands for Water 💧, signifying intuition, wisdom, and adaptability. Associated with Lakshmi's night vigilance, it's a harbinger of deep knowledge. Cycles through Eating, Walking, etc., for daily predictions. Amplifying watery traits in Nakshatras like Pushya with emotional depth! 🦉🌊🔮",
+    "Crow": "Crow (Kāka) represents Earth 🌍, denoting practicality, intelligence, and ancestral connections. As Shani's messenger, it signifies resourcefulness and caution. Its states (Ruling to Sleeping) guide mundane tasks. Stabilizing earthy Kanya Rashi with wise, analytical energy! 🐦🌿🧠",
+    "Cock": "The Cock (Kukkuṭa) embodies Air 🌬️, symbolizing alertness, courage, and communication. Linked to dawn and warriors like Kartikeya, it crows awakening and vigilance. Activities cycle for timing battles or starts. Boosting airy Mithuna with swift, intellectual winds! 🐔☁️🏹",
+    "Peacock": "Peacock (Mayūra) signifies Ether ✨, illustrating expansion, beauty, and spirituality. Vehicle of Kartikeya, it dances in royal harmony, representing boundless space. From Ruling (peak creativity) to Dying, it aids spiritual pursuits. Elevating ethereal Meena with cosmic visions! 🦚🌌💫"
 }
 rashi_traits = {
     "Mesha": "energetic pioneer 🔥🚀",
@@ -571,7 +571,7 @@ if st.button("Generate Fun Insights! 🌟"):
     try:
         local_dt = datetime.datetime.combine(dob, tob)
         tz = zoneinfo.ZoneInfo(timezone)
-        local_dt = tz.localize(local_dt)
+        local_dt = local_dt.replace(tzinfo=tz)
         utc_dt = local_dt.astimezone(zoneinfo.ZoneInfo("UTC"))
         year, month, day = utc_dt.year, utc_dt.month, utc_dt.day
         hour, minute, second = utc_dt.hour, utc_dt.minute, utc_dt.second
