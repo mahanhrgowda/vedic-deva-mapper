@@ -2,6 +2,7 @@ import streamlit as st
 import math
 import datetime
 import zoneinfo
+import random
 
 # Utility functions
 def rev(angle):
@@ -555,17 +556,17 @@ st.write("Enter your details to discover personalized Vedic devas, astrology, an
 with st.expander("About Vedic Devas and Astrology (General Explanation)"):
     st.markdown(general_text)
 
-name = st.text_input("Your Name")
-place = st.text_input("Birth Place (Optional, for display)")
-dob = st.date_input("Date of Birth", min_value=datetime.date(1900, 1, 1), max_value=datetime.date(2100, 12, 31))
-tob = st.time_input("Time of Birth (Local Time)", step=datetime.timedelta(minutes=1))
+name = st.text_input("Your Name", value="Mahān")
+place = st.text_input("Birth Place (Optional, for display)", value="Chikkamagaluru")
+dob = st.date_input("Date of Birth", min_value=datetime.date(1900, 1, 1), max_value=datetime.date(2100, 12, 31), value=datetime.date(1993, 7, 12))
+tob = st.time_input("Time of Birth (Local Time)", step=datetime.timedelta(minutes=1), value=datetime.time(12, 26))
 
 # All timezones
 timezones = sorted(zoneinfo.available_timezones())
-timezone = st.selectbox("Timezone 🌍", timezones, index=timezones.index("UTC") if "UTC" in timezones else 0)
+timezone = st.selectbox("Timezone 🌍", timezones, index=timezones.index("Asia/Kolkata") if "Asia/Kolkata" in timezones else 0)
 
-lat = st.number_input("Latitude of Birth Place", min_value=-90.0, max_value=90.0, value=0.0)
-lon = st.number_input("Longitude of Birth Place", min_value=-180.0, max_value=180.0, value=0.0)
+lat = st.number_input("Latitude of Birth Place", min_value=-90.0, max_value=90.0, value=13.32)
+lon = st.number_input("Longitude of Birth Place", min_value=-180.0, max_value=180.0, value=75.77)
 
 if st.button("Generate Fun Insights! 🌟"):
     try:
@@ -676,7 +677,7 @@ if st.button("Generate Fun Insights! 🌟"):
         n_trait = nak_traits.get(nak_name, "cosmic wanderer ⭐")
         fun_phrase = random.choice(fun_phrases.get(element, ["embody the universe's mysteries! 🌌🔮✨"]))
         
-        dynamic_desc = f"You are a {r_trait} infused with {n_trait} in Pada {pada} precision ⏳, guided by {ruling_bird} ({sanskrit_name}) of {element} vibes! {fun_phrase}"
+        dynamic_desc = f"You are a {r_trait} infused with {n_trait} in Pada {pada} precision ⏳, guided by {ruling_bird} ({sanskrit_name}) of {element} vibes as per Agastya Muni's Pancha Pakshi Shastra, where your bird cycles through Ruling (powerful actions), Eating (gains), Walking (progress), Sleeping (rest), and Dying (caution)—time your endeavors accordingly for cosmic harmony! {fun_phrase}"
         
         # Calculate Sun sign and Ascendant sign
         sun_rashi_num = math.floor(sid_sun / 30)
