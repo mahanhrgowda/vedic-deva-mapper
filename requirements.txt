@@ -1,4 +1,1 @@
-streamlit>=1.37.1  # Ensure latest compatible version; optional but recommended
-pyswisseph>=2.10.3.2  # The Swiss Ephemeris Python wrapper
-timezonefinder>=6.5.2  # For timezone detection from lat/lon
-pytz>=2024.1  # For timezone handling
+
